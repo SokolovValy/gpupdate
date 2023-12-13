@@ -16,7 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
+from util.util import str2bool
 from pathlib import Path
 
 
@@ -39,13 +39,6 @@ def remove_dir_tree(path, delete_files=False, delete_folder=False, delete_sub_fo
             remove_dir_tree(entry, delete_files, delete_folder, delete_sub_folders)
     if delete_folder and not content:
         path.rmdir()
-
-
-def str2bool(boolstr):
-    if boolstr and boolstr.lower() in ['true', 'yes', '1']:
-        return True
-    return False
-
 
 class Folder:
     def __init__(self, folder_object, username=None):

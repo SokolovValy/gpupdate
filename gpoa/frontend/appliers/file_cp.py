@@ -21,7 +21,7 @@ from gpt.folders import (
       FileAction
     , action_letter2enum
 )
-from .folder import str2bool
+from util.util import str2bool
 from util.logging import log
 import shutil
 from pathlib import Path

@@ -187,3 +187,15 @@ def string_to_literal_eval(string):
     except:
         literaleval = string
     return literaleval
+
+def str2bool(boolstr):
+    if not boolstr:
+        return False
+    elif isinstance(boolstr, str) and boolstr.lower() in ['true', 'yes', '1']:
+        return True
+    elif isinstance(boolstr, bool):
+        return boolstr
+    elif isinstance(boolstr, int):
+        if boolstr == 1:
+            return True
+    return False
