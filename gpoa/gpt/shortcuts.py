@@ -25,6 +25,7 @@ from xml.etree import ElementTree
 from xdg.DesktopEntry import DesktopEntry
 import json
 
+import locale
 from util.util import str2bool
 from util.windows import transform_windows_path
 from util.xml import get_xml_root
@@ -245,12 +246,13 @@ class shortcut:
         '''
         Update desktop file object from internal data.
         '''
+        lang = locale.getlocale()[0]
         if self.type == TargetType.URL:
             self.desktop_file.set('Type', 'Link')
         else:
             self.desktop_file.set('Type', 'Application')
 
-        self.desktop_file.set('Name', self.name)
+        self.desktop_file.set(f'Name[{lang}]', self.name)
 
         desktop_path = self.path
         if self.expanded_path:
