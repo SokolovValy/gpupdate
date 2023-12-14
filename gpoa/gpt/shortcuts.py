@@ -25,6 +25,7 @@ from xml.etree import ElementTree
 from xdg.DesktopEntry import DesktopEntry
 import json
 
+from util.util import str2bool
 from util.windows import transform_windows_path
 from util.xml import get_xml_root
 
@@ -257,7 +258,8 @@ class shortcut:
         if self.type == TargetType.URL:
             self.desktop_file.set('URL', desktop_path)
         else:
-            self.desktop_file.set('Terminal', 'false')
+            terminal_state = str2bool(self.desktop_file.get('Terminal'))
+            self.desktop_file.set('Terminal', 'true' if terminal_state else 'false')
             self.desktop_file.set('Exec', '{} {}'.format(desktop_path, self.arguments))
             self.desktop_file.set('Comment', self.comment)
 
