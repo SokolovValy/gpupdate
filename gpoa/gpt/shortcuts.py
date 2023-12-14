@@ -263,7 +263,7 @@ class shortcut:
             terminal_state = str2bool(self.desktop_file.get('Terminal'))
             self.desktop_file.set('Terminal', 'true' if terminal_state else 'false')
             self.desktop_file.set('Exec', '{} {}'.format(desktop_path, self.arguments))
-            self.desktop_file.set('Comment', self.comment)
+            self.desktop_file.set(f'Comment[{lang}]', self.comment)
 
         if self.icon:
             self.desktop_file.set('Icon', self.icon)
