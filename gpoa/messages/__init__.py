@@ -112,6 +112,7 @@ def error_code(code):
     error_ids[74] = 'Autofs restart failed'
     error_ids[75] = 'Failed to update LDAP with new password data'
     error_ids[76] = 'Failed to change local user password'
+    error_ids[81] = 'Error setting trust attribute for shortcut'
     return error_ids.get(code, 'Unknown error code')
 
 def debug_code(code):
@@ -349,6 +350,8 @@ def debug_code(code):
     debug_ids[232] = 'No user login records found'
     debug_ids[233] = 'Calculating time since the first user login after their password change'
     debug_ids[234] = 'No logins found after password change'
+    debug_ids[238] = 'The trust attribute is not supported'
+    debug_ids[239] = 'Setting the trust attribute for a shortcut'
 
     return debug_ids.get(code, 'Unknown debug code')
 
